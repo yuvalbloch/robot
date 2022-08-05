@@ -1,3 +1,5 @@
+#pragma once
+
 #include "vertex3d.h"
 #include <GL/freeglut.h>
 /*
@@ -9,13 +11,13 @@ enum sides {
 };
 class robotPart
 {
-private:
+protected:
 	myVertex3d corners[8];
 	void quad(sides a, sides b, sides c, sides d);
 public:
-	robotPart(double x0, double yo, double z, double xSize, double ySize, double zSize);
+	robotPart(double x0, double y0, double z0, double xSize, double ySize, double zSize);
 	robotPart(const robotPart& );
-	void draw();
+	virtual void draw();
 
 };
 

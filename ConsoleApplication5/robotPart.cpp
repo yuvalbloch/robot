@@ -9,7 +9,7 @@ void robotPart::quad(sides a , sides b ,sides c ,sides d)
 
 }
 
-robotPart::robotPart(double x0, double y0, double z0, double xSize, double ySize, double zSize) {
+ robotPart::robotPart(double x0, double y0, double z0, double xSize, double ySize, double zSize) {
 	corners[back_bottom_left] = myVertex3d(x0,y0,z0);
 	corners[back_bottom_right] = myVertex3d(x0 +xSize, y0, z0);
 	corners[back_top_left] = myVertex3d(x0, y0 +ySize, z0);
@@ -20,7 +20,10 @@ robotPart::robotPart(double x0, double y0, double z0, double xSize, double ySize
 	corners[front_top_right] = myVertex3d(x0 + xSize, y0 + ySize,z0+ zSize);
 		
 }
-robotPart::robotPart(const robotPart&) {
+robotPart::robotPart(const robotPart& r) {
+	for (int i = 0; i < 8; i++) {
+		corners[i] = r.corners[i];
+	}
 	
 }
 

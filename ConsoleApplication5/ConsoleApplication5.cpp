@@ -1,9 +1,9 @@
 ﻿
-//#include "vertex3d.h"
 #include<GL/freeglut.h>
 #include "vertex3d.h"
 #include "room.h"
 #include "robotPart.h"
+#include "head.h"
 GLint winHigh = 600, WinWidth = 1200; //window size
 
 //set the "camara" position
@@ -34,7 +34,9 @@ void display() {
     room lab = room();
     lab.drawRoom();
     robotPart body = robotPart(50, 0, 50, 20, 30, 20);
+    head rHead = head(55.0, 30.0, 55.0, 10.0, 20.0, 10.0);
     body.draw();
+    rHead.draw();
     glFlush();
 }
 int main(int argc, char** argv)

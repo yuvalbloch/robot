@@ -22,25 +22,29 @@ myVertex3d::myVertex3d(const myVertex3d& v)
 myVertex3d::~myVertex3d()
 {
 }
-
-myVertex3d myVertex3d::operator + (myVertex3d v)
+//act as +=
+myVertex3d& myVertex3d::operator + (myVertex3d v)
 {
-	v.x += x;
-	v.y += y;
-	v.z += z;
-	return v;
+	x = x+ v.x;
+	y = y+ v.y;
+	z =z+  v.z;
+	return *this;
 }
-
-myVertex3d myVertex3d::operator*(double d)
+//sct as *=
+myVertex3d& myVertex3d::operator*(double d)
 {
-	myVertex3d v = myVertex3d(x*d, y*d, z*d);
-	return v;
+	x *= d;
+	y *= d;
+	z *= d;
+	return *this;
 }
-
-myVertex3d myVertex3d::operator*(myVertex3d v)
+//sct as *=
+myVertex3d& myVertex3d::operator*(myVertex3d v)
 {
-	myVertex3d nv = myVertex3d(x * v.x, y * v.y, z * v.z );
-	return nv;
+	x *= v.x;
+	y *= v.y;
+	z *= v.z;
+	return *this;
 }
 
 void myVertex3d::printData()
