@@ -20,16 +20,16 @@ GLfloat dnear = 15, dfar = 32;
 
 void Init(void) {
     glClearColor(1.0, 1.0, 1.0, 0.0);
-    glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     gluLookAt(x0, Y0, z0, xref, yref, zref, Vx, Vy, Vz);
     glMatrixMode(GL_PROJECTION);
-    gluPerspective(90, 1, 0, 50);
+    gluPerspective(90, 1, 10, 250);
     glLineWidth(4.0);
+    glEnable(GL_DEPTH_TEST);
 }
 void display() {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glColor3f(0.0, 1.0, 0.0);
-    glClear(GL_COLOR_BUFFER_BIT);
     //draw the room
     room lab = room();
     lab.drawRoom();
@@ -40,7 +40,7 @@ void display() {
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB |GLUT_DEPTH);
     glutInitWindowSize(WinWidth, winHigh);
     glutInitWindowPosition(50, 50);
     glutCreateWindow("let see if it work");

@@ -2,14 +2,14 @@
 
 void room::drawWalls()
 {
-    glColor3f(0.0, 1.0, 0.0);
+    glColor3f(0.3,0.3, 0.3);
     glBegin(GL_POLYGON);
     glVertex3f(0.0, 0.0, 0.0);
     glVertex3f(0.0, 0.0, 100.0);
     glVertex3f(0.0, 100.0, 100.0);
     glVertex3f(0.0, 100.0, 0.0);
     glEnd();
-    glColor3f(0.0, 0.0, 1.0);
+    glColor3f(0.7, 0.7, 0.7);
     glBegin(GL_POLYGON);
     glVertex3f(0.0, 0.0, 0.0);
     glVertex3f(100.0, 0.0, 0.0);
