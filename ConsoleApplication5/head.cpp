@@ -26,6 +26,11 @@ head::head(double x0, double y0, double z0, double sX, double sY, double sZ) : r
 	neck = robotPart(x0 + sX * 0.4, y0, z0 + sZ * 0.4, sX / 5, sY / 2, sZ / 5);
 }
 
+head::head()
+{
+	head(0, 0, 0, 0, 0, 0);
+}
+
 void head::rotate_up_down(float angle)
 {
 	if (sumVerticalAngle < PI/6 && angle>0 || sumVerticalAngle > -PI/6 && angle < 0)  {
@@ -44,4 +49,10 @@ void head::rotate_left_right(float angle)
 		neck.rotateOverAxis(midNeck, midNeck + glm::vec3(0, 1, 0), angle);
 	}
 	
+}
+
+void head::transformWithNeck(glm::mat4 trans)
+{
+	tranform(trans);
+	neck.tranform(trans);
 }

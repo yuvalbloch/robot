@@ -3,6 +3,7 @@
 #include "room.h"
 #include "robotPart.h"
 #include "head.h"
+#include "robot.h"
 
 GLint winHigh = 600, WinWidth = 1200; //window size
 
@@ -17,27 +18,43 @@ GLfloat xwMin = -16.0, ywMin = -16.0, xwMax = 16.0, ywMax = 16.0;
 
 //set the depth of the clliping
 GLfloat dnear = 15, dfar = 32;
-robotPart body = robotPart(50, 0, 50, 20, 30, 20);
-head rHead  = head(55.0, 30.0, 55.0, 10.0, 10.0, 10.0);
+robot roby =  robot(50, 0, 50, 20, 30, 20);
+
 void keyboard(unsigned char key, int x, int y) {
+
     switch (key) {
     case 'w':
-
-        rHead.rotate_up_down(-0.2);
+        roby.myHead.rotate_up_down(-0.2);
         break;
     case 's':
-        rHead.rotate_up_down(0.2);
+        roby.myHead.rotate_up_down(0.2);
         break;
     case 'a':
-        rHead.rotate_left_right(-0.2);
+        roby.myHead.rotate_left_right(-0.2);
         break;
     case 'd':
-        rHead.rotate_left_right(0.2);
+        roby.myHead.rotate_left_right(0.2);
         break;
     }
     glutPostRedisplay();
 }
-
+void spicelKeyboard(int key, int x, int y) {
+    switch (key) {
+    case GLUT_KEY_UP:
+        roby.move(-0.1);
+        break;
+    case GLUT_KEY_DOWN:
+        roby.move(0.1);
+        break;
+    case GLUT_KEY_LEFT:
+        roby.rotate(0.1);
+        break;
+    case GLUT_KEY_RIGHT:
+        roby.rotate(-0.1);
+        break;
+    }
+    glutPostRedisplay();
+}
 void Init(void) {
     glClearColor(1.0, 1.0, 1.0, 0.0);
     glMatrixMode(GL_MODELVIEW);
@@ -47,6 +64,7 @@ void Init(void) {
     glLineWidth(4.0);
     glEnable(GL_DEPTH_TEST);
     glutKeyboardFunc(keyboard);
+    glutSpecialFunc(spicelKeyboard);
 }
 void display() {
 
@@ -55,8 +73,7 @@ void display() {
     //draw the room
     room lab = room();
     lab.drawRoom();
-    body.draw();
-    rHead.draw();
+    roby.draw();
     glFlush();
 }
 int main(int argc, char** argv)

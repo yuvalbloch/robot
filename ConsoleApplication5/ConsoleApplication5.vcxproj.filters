@@ -30,6 +30,9 @@
     <ClCompile Include="head.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="robot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="room.h">
@@ -45,6 +48,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="robot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

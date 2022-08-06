@@ -144,6 +144,7 @@
     <ClCompile Include="body.cpp" />
     <ClCompile Include="ConsoleApplication5.cpp" />
     <ClCompile Include="head.cpp" />
+    <ClCompile Include="robot.cpp" />
     <ClCompile Include="robotPart.cpp" />
     <ClCompile Include="room.cpp" />
   </ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="body.h" />
     <ClInclude Include="head.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="robot.h" />
     <ClInclude Include="robotPart.h" />
     <ClInclude Include="room.h" />
   </ItemGroup>

@@ -9,7 +9,7 @@
 # define PI       3.141592653589793238462643383279502884L
 /*
 * the robot part are boxes that use to assmble the robot
-* every body part made of 8 vertex3d one for every corner
+* every body part made of 8 glm vector one for every corner
 * the side of the robotPart made in diffrent color for orintion:
 * front and back red, top and bottom green sides blue
 */
@@ -19,14 +19,22 @@ enum sides {
 class robotPart
 {
 protected:
+
+	//take four "sides" enum as indexes for corners and draw qoud batwin them
 	void quad(sides a, sides b, sides c, sides d);
-	void tranform(glm::mat4 trans);
+	// run of all the corners in the body part and trnfrom them by multypull in matrix 
 public:
+	void tranform(glm::mat4 trans);
 	glm::vec4 corners[8];
 	robotPart(double x0, double y0, double z0, double xSize, double ySize, double zSize);
 	robotPart(const robotPart& );
 	robotPart();
 	virtual void draw();
+	/*
+	*use to rotate the body part around any axis in the space
+	* the axis difine with 2 point a and b that on it 
+	* a and be can be any 2 diffrent point on the axis
+	*/
 	void rotateOverAxis(glm::vec3 a, glm::vec3 b, float angle);
 
 
