@@ -18,13 +18,13 @@
     <ClCompile Include="ConsoleApplication5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vertex3d.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="room.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="robotPart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="body.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="head.cpp">
@@ -32,9 +32,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="vertex3d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="room.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -44,5 +41,16 @@
     <ClInclude Include="head.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="body.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ConsoleApplication5.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

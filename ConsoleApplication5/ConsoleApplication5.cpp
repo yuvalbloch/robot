@@ -1,6 +1,5 @@
 ﻿
 #include<GL/freeglut.h>
-#include "vertex3d.h"
 #include "room.h"
 #include "robotPart.h"
 #include "head.h"
@@ -28,6 +27,7 @@ void Init(void) {
     glEnable(GL_DEPTH_TEST);
 }
 void display() {
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glColor3f(0.0, 1.0, 0.0);
     //draw the room

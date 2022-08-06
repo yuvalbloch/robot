@@ -10,14 +10,14 @@ void robotPart::quad(sides a , sides b ,sides c ,sides d)
 }
 
  robotPart::robotPart(double x0, double y0, double z0, double xSize, double ySize, double zSize) {
-	corners[back_bottom_left] = myVertex3d(x0,y0,z0);
-	corners[back_bottom_right] = myVertex3d(x0 +xSize, y0, z0);
-	corners[back_top_left] = myVertex3d(x0, y0 +ySize, z0);
-	corners[front_bottom_left] = myVertex3d(x0, y0, z0+zSize);
-	corners[front_top_left] = myVertex3d(x0, y0 + ySize, z0 + zSize);
-	corners[back_top_right] = myVertex3d(x0 + xSize, y0 + ySize, z0);
-	corners[front_bottom_right] = myVertex3d(x0 + xSize, y0, z0 + zSize);
-	corners[front_top_right] = myVertex3d(x0 + xSize, y0 + ySize,z0+ zSize);
+	corners[back_bottom_left] = glm::vec4(x0,y0,z0 ,1);
+	corners[back_bottom_right] = glm::vec4(x0 +xSize, y0, z0,1);
+	corners[back_top_left] = glm::vec4(x0, y0 +ySize, z0,1);
+	corners[front_bottom_left] = glm::vec4(x0, y0, z0+zSize,1);
+	corners[front_top_left] = glm::vec4(x0, y0 + ySize, z0 + zSize,1);
+	corners[back_top_right] = glm::vec4(x0 + xSize, y0 + ySize, z0,1);
+	corners[front_bottom_right] = glm::vec4(x0 + xSize, y0, z0 + zSize,1);
+	corners[front_top_right] = glm::vec4(x0 + xSize, y0 + ySize,z0+ zSize,1);
 		
 }
 robotPart::robotPart(const robotPart& r) {
