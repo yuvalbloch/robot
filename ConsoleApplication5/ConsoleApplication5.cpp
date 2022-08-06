@@ -3,6 +3,7 @@
 #include "room.h"
 #include "robotPart.h"
 #include "head.h"
+
 GLint winHigh = 600, WinWidth = 1200; //window size
 
 //set the "camara" position
@@ -16,6 +17,26 @@ GLfloat xwMin = -16.0, ywMin = -16.0, xwMax = 16.0, ywMax = 16.0;
 
 //set the depth of the clliping
 GLfloat dnear = 15, dfar = 32;
+robotPart body = robotPart(50, 0, 50, 20, 30, 20);
+head rHead  = head(55.0, 30.0, 55.0, 10.0, 10.0, 10.0);
+void keyboard(unsigned char key, int x, int y) {
+    switch (key) {
+    case 'w':
+
+        rHead.rotate_up_down(-0.2);
+        break;
+    case 's':
+        rHead.rotate_up_down(0.2);
+        break;
+    case 'a':
+        rHead.rotate_left_right(-0.2);
+        break;
+    case 'd':
+        rHead.rotate_left_right(0.2);
+        break;
+    }
+    glutPostRedisplay();
+}
 
 void Init(void) {
     glClearColor(1.0, 1.0, 1.0, 0.0);
@@ -25,6 +46,7 @@ void Init(void) {
     gluPerspective(90, 1, 10, 250);
     glLineWidth(4.0);
     glEnable(GL_DEPTH_TEST);
+    glutKeyboardFunc(keyboard);
 }
 void display() {
 
@@ -33,8 +55,6 @@ void display() {
     //draw the room
     room lab = room();
     lab.drawRoom();
-    robotPart body = robotPart(50, 0, 50, 20, 30, 20);
-    head rHead = head(55.0, 30.0, 55.0, 10.0, 20.0, 10.0);
     body.draw();
     rHead.draw();
     glFlush();

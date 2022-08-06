@@ -9,6 +9,26 @@ void robotPart::quad(sides a , sides b ,sides c ,sides d)
 
 }
 
+void robotPart::tranform(glm::mat4 trans)
+{
+	for (int i = 0; i < 8; i++) {
+		corners[i] = trans* corners[i] ;
+	}
+	glutPostRedisplay();
+	glFlush();
+}
+
+void robotPart::rotateOverAxis(glm::vec3 a, glm::vec3 b ,float angle)
+{
+	glm::vec3 axis = b - a;
+	glm::mat4 Identity = glm::mat4(1.);
+	glm::mat4 translate = glm::translate(Identity, a * -1.0f);
+	glm::mat4 rotate = glm::rotate(Identity, angle, axis);
+	glm::mat4 transform = glm::inverse(translate) * rotate * translate;
+	
+	tranform(transform);
+}
+
  robotPart::robotPart(double x0, double y0, double z0, double xSize, double ySize, double zSize) {
 	corners[back_bottom_left] = glm::vec4(x0,y0,z0 ,1);
 	corners[back_bottom_right] = glm::vec4(x0 +xSize, y0, z0,1);
@@ -25,6 +45,10 @@ robotPart::robotPart(const robotPart& r) {
 		corners[i] = r.corners[i];
 	}
 	
+}
+
+robotPart::robotPart()
+{
 }
 
 void robotPart::draw()
@@ -44,3 +68,5 @@ void robotPart::draw()
 	glEnd();
 	glFlush();
 }
+
+

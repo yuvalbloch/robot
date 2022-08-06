@@ -1,7 +1,12 @@
 #pragma once
 
 #include<glm/glm/glm.hpp>
+#include <glm/glm/gtx/string_cast.hpp>
+#include <glm/glm/gtc/matrix_transform.hpp>
 #include <GL/freeglut.h>
+#include<iostream>
+#include <math.h>
+# define PI       3.141592653589793238462643383279502884L
 /*
 * the robot part are boxes that use to assmble the robot
 * every body part made of 8 vertex3d one for every corner
@@ -14,12 +19,16 @@ enum sides {
 class robotPart
 {
 protected:
-	glm::vec4 corners[8];
 	void quad(sides a, sides b, sides c, sides d);
+	void tranform(glm::mat4 trans);
 public:
+	glm::vec4 corners[8];
 	robotPart(double x0, double y0, double z0, double xSize, double ySize, double zSize);
 	robotPart(const robotPart& );
+	robotPart();
 	virtual void draw();
+	void rotateOverAxis(glm::vec3 a, glm::vec3 b, float angle);
+
 
 };
 
