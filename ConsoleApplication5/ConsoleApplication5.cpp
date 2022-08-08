@@ -22,21 +22,7 @@ robot roby =  robot(50, 0, 50, 20, 30, 20);
 
 void keyboard(unsigned char key, int x, int y) {
 
-    switch (key) {
-    case 'w':
-        roby.myHead.rotate_up_down(-0.2);
-        break;
-    case 's':
-        roby.myHead.rotate_up_down(0.2);
-        break;
-    case 'a':
-        roby.myHead.rotate_left_right(-0.2);
-        break;
-    case 'd':
-        roby.myHead.rotate_left_right(0.2);
-        break;
-    }
-    glutPostRedisplay();
+    roby.keyBoard(key);
 }
 void spicelKeyboard(int key, int x, int y) {
     switch (key) {
