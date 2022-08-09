@@ -1,20 +1,24 @@
 #include "robot.h"
 void robot::draw()
 {
+	
 	robotPart::draw();
 	myHead.draw();
 	myArm.draw();
+
 }
 robot::robot(double x0, double y0, double z0, double sX, double sY, double sZ) : robotPart(x0, y0  , z0, sX, sY, sZ) {
 	myHead = head(x0 + sX * (0.2), y0 + sY, z0 + sZ * 0.2, sX * 0.6, sY / 2, sZ * 0.6);
 	myArm = arm(x0 + sX, y0 + sY / 2, z0 + sZ / 2, sX / 4,  sY / 4, sZ * 2);
 }
-void robot::move( float fari) {
+void robot::move(float fari) {
 	glm::vec3 dirctionVector = (corners[back_bottom_left] - corners[front_bottom_left]) * fari;
-	glm::mat4 translate = glm::translate( glm::mat4(1.0), dirctionVector);
-	tranform(translate);
-	myArm.tranform(translate);
-	myHead.transformWithNeck(translate);
+	glm::mat4 translate = glm::translate(glm::mat4(1.0), dirctionVector);
+	if (checkCollision(translate) && myArm.checkCollision(translate) && myHead.checkCollision(translate)) {
+		tranform(translate);
+		myArm.tranform(translate);
+		myHead.transformWithNeck(translate);
+	}
 }
 void robot::keyBoard(unsigned char key)
 {
@@ -53,9 +57,30 @@ void robot::keyBoard(unsigned char key)
 
 	glutPostRedisplay();
 }
+void robot::spicelKeyBoard(unsigned char key){
+	switch (key) {
+	case GLUT_KEY_UP:
+		move(-0.1);
+		break;
+	case GLUT_KEY_DOWN:
+		move(0.1);
+		break;
+	case GLUT_KEY_LEFT:
+		rotate(0.1);
+		break;
+	case GLUT_KEY_RIGHT:
+		rotate(-0.1);
+		break;
+	}
+	glutPostRedisplay();
+}
 void robot::rotate(float angle) {
-	glm::vec3 mid = (corners[front_bottom_right] + corners[front_bottom_left] + corners[back_bottom_right] + corners[back_bottom_left])/4.0f;
-	rotateOverAxis(mid, mid + glm::vec3(0, 1, 0), angle);
-	myHead.rotateOverAxis(mid, mid + glm::vec3(0, 1, 0), angle);
-	myArm.rotateOverAxis(mid, mid + glm::vec3(0, 1, 0), angle);
+	glm::vec3 mid = (corners[front_bottom_right] + corners[front_bottom_left] + corners[back_bottom_right] + corners[back_bottom_left]) / 4.0f;
+	glm::mat4 transformMat = glm::mat4(1.0f);
+	myArm.matrix_for_rotation_over_axis(&transformMat,mid, mid + glm::vec3(0, 1, 0), angle);
+	if (myArm.checkCollision(transformMat)&&checkCollision(transformMat) ){
+		tranform(transformMat);
+		myArm.tranform(transformMat);
+		myHead.tranform(transformMat);
+	}
 }

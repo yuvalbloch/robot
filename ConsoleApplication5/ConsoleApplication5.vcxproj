@@ -143,7 +143,6 @@
   <ItemGroup>
     <ClCompile Include="arm.cpp" />
     <ClCompile Include="arm_part.cpp" />
-    <ClCompile Include="body.cpp" />
     <ClCompile Include="ConsoleApplication5.cpp" />
     <ClCompile Include="head.cpp" />
     <ClCompile Include="robot.cpp" />
@@ -153,7 +152,6 @@
   <ItemGroup>
     <ClInclude Include="arm.h" />
     <ClInclude Include="arm_part.h" />
-    <ClInclude Include="body.h" />
     <ClInclude Include="head.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="robot.h" />

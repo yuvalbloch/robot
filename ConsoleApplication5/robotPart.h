@@ -24,19 +24,24 @@ protected:
 	void quad(sides a, sides b, sides c, sides d);
 	// run of all the corners in the body part and trnfrom them by multypull in matrix 
 public:
-	void tranform(glm::mat4 trans);
 	glm::vec4 corners[8];
+	//constractors
 	robotPart(double x0, double y0, double z0, double xSize, double ySize, double zSize);
 	robotPart(const robotPart& );
 	robotPart();
+	//rander function
 	virtual void draw();
+	//transformtiom
 	/*
 	*use to rotate the body part around any axis in the space
 	* the axis difine with 2 point a and b that on it 
 	* a and be can be any 2 diffrent point on the axis
 	*/
-	void rotateOverAxis(glm::vec3 a, glm::vec3 b, float angle);
-
+	bool rotateOverAxis(glm::vec3 a, glm::vec3 b, float angle);
+	void matrix_for_rotation_over_axis(glm::mat4* output, glm::vec3 a, glm::vec3 b, float angle);
+	virtual bool checkCollision(glm::mat4 trans);
+	glm::vec4 findNormal(sides);
+	bool tranform(glm::mat4 trans);
 
 };
 

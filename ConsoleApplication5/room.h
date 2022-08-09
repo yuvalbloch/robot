@@ -8,6 +8,7 @@ class room
 private:
 	void drawWalls();
 	void drawFloor();
+	void createCilingLight(GLfloat lightPos0[4], int lightNum);
 public:
 	void drawRoom();
 

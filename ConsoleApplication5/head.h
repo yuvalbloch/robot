@@ -32,6 +32,7 @@ public:
     //rotate over axis parlal to y axis, totate the head an the neck 
     void rotate_left_right(float angle);
     void transformWithNeck(glm::mat4 trans);
+    bool rotateOverAxisWithNeck(glm::vec3 a, glm::vec3 b, float angle);
 };
 
 
