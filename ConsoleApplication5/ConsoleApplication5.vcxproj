@@ -143,20 +143,24 @@
   <ItemGroup>
     <ClCompile Include="arm.cpp" />
     <ClCompile Include="arm_part.cpp" />
-    <ClCompile Include="ConsoleApplication5.cpp" />
+    <ClCompile Include="camra.cpp" />
+    <ClCompile Include="robotProject.cpp" />
     <ClCompile Include="head.cpp" />
     <ClCompile Include="robot.cpp" />
     <ClCompile Include="robotPart.cpp" />
     <ClCompile Include="room.cpp" />
+    <ClCompile Include="world.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arm.h" />
     <ClInclude Include="arm_part.h" />
+    <ClInclude Include="camra.h" />
     <ClInclude Include="head.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="robot.h" />
     <ClInclude Include="robotPart.h" />
     <ClInclude Include="room.h" />
+    <ClInclude Include="world.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ConsoleApplication5.rc" />

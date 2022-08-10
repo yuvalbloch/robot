@@ -15,6 +15,7 @@ public:
     arm myArm;
     virtual void draw()  override;
     robot(double, double, double, double, double, double);
+    robot();
     //transformation
     void rotate(float angle);
     void move(float far);
