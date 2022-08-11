@@ -7,13 +7,19 @@ void head::drawEye()
 {
 	GLfloat materialColorBF[] = { 1.0f, 0.0f, 0.0f, 1.0f };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColorBF);
-	glm::vec4 leftEye  = ((corners[front_bottom_left] + corners[front_top_left]) * 2.0f + corners[front_top_right] + corners[front_bottom_right]) * 0.166666f;
+	glm::vec4 leftEye1 = ((corners[front_top_left] * 0.8f) + (corners[front_top_right] * 0.2f)) * 0.4f + (((corners[front_bottom_left] * 0.8f) + (corners[front_bottom_right] * 0.2f)) * 0.6f);
+	glm::vec4 leftEye2 = ((corners[front_top_left] * 0.8f) + (corners[front_top_right] * 0.2f)) * 0.6f + (((corners[front_bottom_left] * 0.8f) + (corners[front_bottom_right] * 0.2f)) * 0.4f);
+	glm::vec4 leftEye3 = ((corners[front_top_left] * 0.4f) + (corners[front_top_right] * 0.6f)) * 0.6f + (((corners[front_bottom_left] * 0.4f) + (corners[front_bottom_right] * 0.6f)) * 0.4f);
+	glm::vec4 leftEye4 = ((corners[front_top_left] * 0.4f) + (corners[front_top_right] * 0.6f)) * 0.4f + (((corners[front_bottom_left] * 0.4f) + (corners[front_bottom_right] * 0.6f)) * 0.6f);
+
 	glm::vec4  rightEye = ((corners[front_bottom_right] + corners[front_top_right]) * 2.0f + corners[front_top_left] + corners[front_bottom_left]) * 0.166666f;
 	glPointSize(7.0);
-	glColor3f(1.0, 1.0, 1.0);
-	glBegin(GL_POINTS);
-	glVertex3f(leftEye.x,leftEye.y,leftEye.z);
-	glVertex3f(rightEye.x, rightEye.y, rightEye.z);
+	glBegin(GL_QUADS);
+	
+	glVertex3f(leftEye1.x, leftEye1.y, leftEye1.z);
+	glVertex3f(leftEye2.x, leftEye2.y, leftEye2.z);
+	glVertex3f(leftEye3.x, leftEye3.y, leftEye3.z);
+	glVertex3f(leftEye4.x, leftEye4.y, leftEye1.z);
 	glEnd();
 	glFlush();
 

@@ -24,7 +24,7 @@ void room::drawWalls()
 
 void room::drawFloor()
 {
-    //The color of the sphere
+    //The color of the squere
     GLfloat FloorColor[] = { 0.3f, 0.5f, 0.7f, 1.0f };
     GLfloat FloorSpect[] = { 0.1f, 0.1f, 0.1f, 1.0f };
     GLfloat LineCOLOR[] = { 0.0f, 0.0f, 0.0f, 0.0f };
