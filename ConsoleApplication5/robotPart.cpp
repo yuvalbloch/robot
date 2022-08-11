@@ -65,14 +65,11 @@ void robotPart::quad(sides a, sides b, sides c, sides d)
 void robotPart::draw()
 {
 	glBegin(GL_QUADS);
-	GLfloat materialColorBF[] = { 0.4f, 0.2f, 0.2f, 1.0f };
-	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColorBF);
+
 	quad(back_bottom_left, back_bottom_right, back_top_right, back_top_left);
 	quad(front_bottom_left, front_bottom_right, front_top_right, front_top_left);
-	GLfloat materialColorTB[] = { 0.5f, 0.35f, 0.35f, 1.0f };
 	quad(back_bottom_left, back_bottom_right, front_bottom_right, front_bottom_left);
 	quad(back_top_left, back_top_right, front_top_right, front_top_left);
-	GLfloat materialColorSide[] = { 0.4f, 0.3f, 0.3f, 1.0f };
 	quad(back_bottom_left, back_top_left, front_top_left, front_bottom_left);
 	quad(back_bottom_right, back_top_right, front_top_right, front_bottom_right);
 	glEnd();

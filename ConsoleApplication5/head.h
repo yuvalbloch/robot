@@ -22,6 +22,8 @@ private:
     * the neck totate with the head to left and right but not up and down
     */
    robotPart neck;
+   robotPart leftEye;
+   robotPart rightEye;
 public:
     //the draw function draw 3 part the head himself the eyes and the neck
     virtual void draw()  override;

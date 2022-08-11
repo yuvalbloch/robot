@@ -14,7 +14,10 @@ robot::robot() {
 // the draw call the draw function for evey one of the part
 void robot::draw()
 {
-
+	matrial steel = matrial();
+	steel.setTosteel();
+	glMaterialfv(GL_FRONT, GL_SPECULAR, steel.spect);
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, steel.color);
 	robotPart::draw();
 	myHead.draw();
 	myArm.draw();
@@ -31,7 +34,7 @@ void robot::rotate(float angle) {
 	if (myArm.checkCollision(transformMat) && checkCollision(transformMat)) {
 		tranform(transformMat);
 		myArm.tranform(transformMat);
-		myHead.tranform(transformMat);
+		myHead.transformWithNeck(transformMat);
 	}
 }
 void robot::move(float fari) {

@@ -1,3 +1,4 @@
+#pragma once
 #include "arm.h"
 
 /*
@@ -18,6 +19,10 @@ arm::arm()
 //the rander function
 void arm::draw()
 {
+	matrial steel = matrial();
+	steel.setTosteel();
+	glMaterialfv(GL_FRONT, GL_SPECULAR, steel.spect);
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, steel.color);
 	upper_arm->draw();
 	forearm->draw();
 	hand->draw();

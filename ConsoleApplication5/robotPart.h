@@ -6,13 +6,14 @@
 #include <GL/freeglut.h>
 #include<iostream>
 #include <math.h>
-# define PI       3.141592653589793238462643383279502884L
+#include"matrialList.h"
 /*
 * the robot part are boxes that use to assmble the robot
 * every body part made of 8 glm vector one for every corner
 * the side of the robotPart made in diffrent color for orintion:
 * front and back red, top and bottom green sides blue
 */
+
 enum sides {
 	front_top_left = 0, front_top_right =1, front_bottom_left =2 , front_bottom_right =3, back_top_left = 4, back_top_right = 5, back_bottom_left = 6, back_bottom_right = 7
 };

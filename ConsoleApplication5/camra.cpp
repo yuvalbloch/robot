@@ -1,6 +1,6 @@
 #include "camra.h"
 #include<iostream>
-#include "robotPart.h"
+#include"matrialList.h"
 /* 
 * the camra constructor set up the position of the camra ans its dirction
 * to first values that give us a comfarble way to see the robot 

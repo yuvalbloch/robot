@@ -1,3 +1,4 @@
+#pragma once
 #include "arm_part.h"
 //the arm part can rotate over an axis that lay vertical to the graound in the middle of his meeting with the last arm part
 bool arm_part::rotate(float angle)

@@ -2,10 +2,9 @@
 
 void room::drawWalls()
 {
-    GLfloat materialColor[] = { 0.4f, 0.65f, 0.75f, 1.0f }; 
-    GLfloat wallSpect[] = { 0.0f, 0.0f, 0.0f, 1.0f };
-    glMaterialfv(GL_FRONT, GL_SPECULAR, wallSpect);
-    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColor);
+    matrial iron = matrial();
+    iron.setToIron();
+    iron.use();
     glBegin(GL_POLYGON);
     glNormal3i(1, 0, 0);
     glVertex3f(0.0,-1.0, 0.0);
@@ -25,11 +24,9 @@ void room::drawWalls()
 void room::drawFloor()
 {
     //The color of the squere
-    GLfloat FloorColor[] = { 0.3f, 0.5f, 0.7f, 1.0f };
-    GLfloat FloorSpect[] = { 0.1f, 0.1f, 0.1f, 1.0f };
-    GLfloat LineCOLOR[] = { 0.0f, 0.0f, 0.0f, 0.0f };
-    GLfloat mat_shininess[] = { 20.0 };
-    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, FloorColor);
+    matrial carmic = matrial();
+    carmic.setToCramic();
+    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, carmic.color);
     glBegin(GL_POLYGON);
     glNormal3i(0, 1, 0);
     glVertex3f(0.0, -1.0, 0.0);
@@ -37,12 +34,9 @@ void room::drawFloor()
     glVertex3f(200.0, -1.0, 200.0);
     glVertex3f(200.0, -1.0, 0.0);
     glEnd();
-    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, FloorColor);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, FloorSpect);
+    carmic.use();
     glBegin(GL_QUADS);
     GLfloat squreColor[] = { 0.3f, 0.5f, 0.7f, 1.0f };
-    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, squreColor);
     float slot = 0.5;
     for (int i = 0; i < 20; i++) {
         for (int j = 0; j < 20; j++) {

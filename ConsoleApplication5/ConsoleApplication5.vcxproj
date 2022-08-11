@@ -144,6 +144,7 @@
     <ClCompile Include="arm.cpp" />
     <ClCompile Include="arm_part.cpp" />
     <ClCompile Include="camra.cpp" />
+    <ClCompile Include="matrialList.cpp" />
     <ClCompile Include="robotProject.cpp" />
     <ClCompile Include="head.cpp" />
     <ClCompile Include="robot.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="arm_part.h" />
     <ClInclude Include="camra.h" />
     <ClInclude Include="head.h" />
+    <ClInclude Include="matrialList.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="robot.h" />
     <ClInclude Include="robotPart.h" />
