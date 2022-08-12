@@ -7,6 +7,7 @@
 #include<iostream>
 #include <math.h>
 #include"matrialList.h"
+#include "utility.h"
 /*
 * the robot part are boxes that use to assmble the robot
 * every body part made of 8 glm vector one for every corner
@@ -39,7 +40,6 @@ public:
 	* a and be can be any 2 diffrent point on the axis
 	*/
 	bool rotateOverAxis(glm::vec3 a, glm::vec3 b, float angle);
-	void matrix_for_rotation_over_axis(glm::mat4* output, glm::vec3 a, glm::vec3 b, float angle);
 	virtual bool checkCollision(glm::mat4 trans);
 	glm::vec4 findNormal(sides);
 	bool tranform(glm::mat4 trans);

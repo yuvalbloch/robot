@@ -1,6 +1,5 @@
 // Microsoft Visual C++ generated resource script.
 //
-
 #include "resource.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
@@ -14,10 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// ‏‏אנגלית (ארצות הברית) resources
+// Hebrew (Israel) resources
 
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-LANGUAGE 13, 1
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_HEB)
+LANGUAGE LANG_HEBREW, SUBLANG_DEFAULT
+#pragma code_page(1255)
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -25,18 +25,18 @@ LANGUAGE 13, 1
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE  
+2 TEXTINCLUDE 
 BEGIN
     "#include ""winres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE  
+3 TEXTINCLUDE 
 BEGIN
     "\r\n"
     "\0"
@@ -44,7 +44,55 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // ‏‏אנגלית (ארצות הברית) resources
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOGEX 0, 0, 505, 286
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "instraction"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "robot control gouide",IDOK,196,140,89,14
+    PUSHBUTTON      "get to lab",IDCANCEL,293,141,50,14
+    LTEXT           "hallo human\nI am roby the labrotry robt and I am here to gouide to my control system\nin my lab there is 3 state which you can control trow the keyboard\n",IDC_STATIC,8,7,295,48
+    LTEXT           "if you press 1 you get to robot control which mean that you can control my movment using the keyboard\n\nif you press 2 you get to camra cantrol you will get to camra control which mean that you control with the camra which you see trow my lab\n\nif press 3 you get to robot eye state which mean that you see the lab trow my eyes instead trow the camra",IDC_STATIC,9,51,310,88
+    PUSHBUTTON      "canra control gouide",IDC_BUTTON1,112,140,70,14
+    PUSHBUTTON      "adjust light",IDC_BUTTON2,36,143,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        RIGHTMARGIN, 479
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 279
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_DIALOG1 AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // Hebrew (Israel) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -58,3 +106,4 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
+

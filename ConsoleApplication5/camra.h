@@ -1,7 +1,11 @@
 #pragma once
+#include "utility.h"
 #include<GL/freeglut.h>
 #include <glm/glm/gtc/matrix_transform.hpp>
 #include <glm/glm/gtx/string_cast.hpp>
+#include<iostream>
+#include"matrialList.h"
+#include "robot.h"
 /*
 * the camra difine how the user will see the world its have postion vector, dirction vector and vector that tell her where is up
 * the view emulate the way that the virtual world look in an imge that took in real camra that place where the virtual camra lay camra lay in
@@ -20,12 +24,12 @@ private:
 	GLfloat xwMin , ywMin , xwMax , ywMax;
 	//set the depth of the clliping
 	GLfloat dnear , dfar ;
-	enum type  { up_down , side };
+	enum type  { up_down , side ,robot_eye , normal_eye };
 public:
-	
+	int state = normal_eye;
 	void rander();
 	camra();
-
+	void robotEye();
 	/* 
 	* transformation:
 	* the camra cna raotat what mean tha the dirction that it look to will change
@@ -36,17 +40,10 @@ public:
 	void rotate_up_down(float angle);
 	void rotate_to_side(float angle);
 	void moveForwerd(float way);
-	void moveAside();
+	void moveAside(float way);
 
-	/*
-	* utility for transformation:
-	* the matrix_for_rotation_over_axis function use to create a tranformtion matrix for rotation
-	* the axis that the tranformtion is around is a line that pull batwin the 2 point a and b
-	* the result will store in output
-	* the vecMultyple use to find the normal of a plane that lay batwin 2 vector and do it by multple the 2 vector 
-	*/
-	void matrix_for_rotation_over_axis(glm::mat4* output, glm::vec3 a, glm::vec3 b, float angle);
-	void vecMultyple(glm::vec4* targt, glm::vec4 a, glm::vec4 b);
+
+
 
 
 	//key board event

@@ -30,7 +30,7 @@ void robot::draw()
 void robot::rotate(float angle) {
 	glm::vec3 mid = (corners[front_bottom_right] + corners[front_bottom_left] + corners[back_bottom_right] + corners[back_bottom_left]) / 4.0f;
 	glm::mat4 transformMat = glm::mat4(1.0f);
-	myArm.matrix_for_rotation_over_axis(&transformMat, mid, mid + glm::vec3(0, 1, 0), angle);
+	utility::matrix_for_rotation_over_axis(&transformMat, mid, mid + glm::vec3(0, 1, 0), angle);
 	if (myArm.checkCollision(transformMat) && checkCollision(transformMat)) {
 		tranform(transformMat);
 		myArm.tranform(transformMat);
@@ -55,10 +55,10 @@ void robot::move(float fari) {
 void robot::keyBoard(unsigned char key)
 {
 	switch (key) {
-	case 'w':
+	case 's':
 		myHead.rotate_up_down(-0.2);
 		break;
-	case 's':
+	case 'w':
 		myHead.rotate_up_down(0.2);
 		break;
 	case 'a':

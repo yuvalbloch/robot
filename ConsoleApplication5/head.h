@@ -1,6 +1,7 @@
 #pragma once
 
 #include "robotPart.h"
+#include "utility.h"
 
 
 
@@ -29,6 +30,9 @@ public:
     virtual void draw()  override;
     head(double, double, double, double, double, double);
     head();
+    bool robotEye = false;
+    void see();
+    void startSee();
     //rotate around axis that connect the middels off the 2 sides pannel
     void rotate_up_down(float angle);
     //rotate over axis parlal to y axis, totate the head an the neck 

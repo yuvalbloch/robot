@@ -14,7 +14,9 @@ void head::draw()
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColorEYE);
 	leftEye.draw();
 	rightEye.draw();
-	//some light test
+	if (robotEye) {
+		see();
+	}
 }
 //constructors
 head::head(double x0, double y0, double z0, double sX, double sY, double sZ) : robotPart(x0,y0+sY/2,z0,sX,sY,sZ)
@@ -28,6 +30,25 @@ head::head()
 {
 	head(0, 0, 0, 0, 0, 0);
 }
+void head::see()
+{
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glm::vec4 eyePostion = (corners[front_bottom_left] + corners[front_bottom_right] + corners[front_top_left] + corners[front_top_right]) / 4.0f;
+	glm::vec4 refPostion(1.0);
+	utility::vecMultyple(&refPostion, corners[front_bottom_left] - corners[front_bottom_right], corners[front_bottom_left] - corners[front_top_left]);
+	refPostion += eyePostion;
+	gluLookAt(eyePostion.x, eyePostion.y, eyePostion.z, refPostion.x, refPostion.y, refPostion.z, 0, 1, 0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(90, 1, 10, 250);
+}
+void head::startSee()
+{
+	robotEye = true;
+	see();
+}
+
 /*
 * there is 2 possible rotition to the head 
 * up_down rotate on a vertical axis that cross trogh the middle of the head

@@ -109,7 +109,7 @@ bool robotPart::rotateOverAxis(glm::vec3 a, glm::vec3 b, float angle)
 {
 
 	glm::mat4 transform = glm::mat4(1.0);
-	matrix_for_rotation_over_axis(&transform, a, b, angle);
+	utility::matrix_for_rotation_over_axis(&transform, a, b, angle);
 	if (checkCollision(transform)) {
 		tranform(transform);
 		return true;
@@ -118,15 +118,7 @@ bool robotPart::rotateOverAxis(glm::vec3 a, glm::vec3 b, float angle)
 		return false;
 	}
 }
-void robotPart::matrix_for_rotation_over_axis(glm::mat4 *output,glm::vec3 a, glm::vec3 b, float angle)
-{
-	glm::vec3 axis = b - a;
-	glm::mat4 Identity = glm::mat4(1.);
-	glm::mat4 translate = glm::translate(Identity, a * -1.0f);
-	glm::mat4 rotate = glm::rotate(Identity, angle, axis);
-	*output = glm::inverse(translate) * rotate * translate;
 
-}
 bool robotPart::tranform(glm::mat4 trans)
 {
 	if (checkCollision(trans)) {
