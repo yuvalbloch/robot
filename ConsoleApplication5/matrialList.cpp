@@ -3,7 +3,19 @@
 matrial::matrial()
 {	
 }
-
+/*
+* applay the matrial to everything that came after that
+*/
+void matrial::use()
+{
+	glMaterialfv(GL_FRONT, GL_SHININESS, shine);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, spect);
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, color);
+}
+/*-----------------------------------------------------------------------------
+* free set functions: set the parmter of matrial use to define color that doesnt save in the set to functions
+* --------------------------------------------------------------------------
+*/
 void matrial::setColor(float r, float g, float b, float a)
 {
 	color[0] = r;
@@ -22,7 +34,10 @@ void matrial::setShine(float x)
 {
 	shine[0] = x;
 }
-
+/*------------------------------------------------------------------------
+* set to functions: use to set matrial to one of the matrial that the class allready know
+* ------------------------------------------------------------------------
+*/
 void matrial::setToIron()
 {
 	setColor(0.2f, 0.1f, 0.1f, 1.0f);
@@ -53,9 +68,4 @@ void matrial::setToGlass() {
 	setShine(20.0);
 
 }
-void matrial::use()
-{
-	glMaterialfv(GL_FRONT, GL_SHININESS, shine);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, spect);
-	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, color);
-}
+

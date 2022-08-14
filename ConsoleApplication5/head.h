@@ -33,6 +33,7 @@ public:
     bool robotEye = false;
     void see();
     void startSee();
+    void stopSee();
     //rotate around axis that connect the middels off the 2 sides pannel
     void rotate_up_down(float angle);
     //rotate over axis parlal to y axis, totate the head an the neck 

@@ -7,7 +7,7 @@ it made of 2 walls that reprasnt the furthe edge of the room and floor made out 
 class room
 {
 private:
-	float size = 400;
+	float size = 300;
 	void drawWalls();
 	void drawFloor();
 	void drawWindows();

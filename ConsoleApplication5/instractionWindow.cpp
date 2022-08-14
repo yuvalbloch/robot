@@ -179,7 +179,7 @@ int instractionWindow::LightID()
     }
 
 }
-
+// set all button to off so you coldent push them
 void instractionWindow::offAllButton() {
     help.off();
     exit.off();

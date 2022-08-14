@@ -5,12 +5,24 @@
 #include"instractionWindow.h"
 world myWorld;
 instractionWindow ins;
+
+/*-------------------------------------------------------------
+* direct event to the right object in addition to the state
+* --------------------------------------------------------------
+*/
 void keyboard(unsigned char key, int x, int y) {
     myWorld.keyboard(key);
 }
 void spicelKeyboard(int key, int x, int y) {
     myWorld.spicelKeyboard(key);
 }
+void mouseFunc(int button, int state, int x, int y) {
+    ins.mouseFunc(button, state, x, y);
+}
+/*-------------------------------------------------------------
+* use diffrent display in addition to the state
+* --------------------------------------------------------------
+*/
 void display() {
     myWorld.display();
   
@@ -21,9 +33,10 @@ void instraction() {
     ins.display();
 
 }
-void mouseFunc(int button, int state ,int x,int y ) {
-    ins.mouseFunc(button, state, x, y);
-}
+/*---------------------------------------------
+* initlize bothe window
+* ------------------------------------
+*/
 void Init(void) {
     // create the world window
     myWorld.Init();
@@ -41,7 +54,10 @@ void Init(void) {
     glutMouseFunc(mouseFunc);
    
 }
-
+/*---------------------------------------------
+* main
+* ------------------------------------
+*/
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);

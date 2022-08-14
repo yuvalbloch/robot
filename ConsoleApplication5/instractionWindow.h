@@ -11,7 +11,7 @@ class instractionWindow
 {
 private:
 	// light color setter information
-	float  r =0.0, g =1.0, b=0.0, power =1.0; 
+	float  r =0.5, g =0.5, b=0.5, power =1.0; 
 	int lightNum = 0;
 	int lightAmount = 4;
 	button light[4];

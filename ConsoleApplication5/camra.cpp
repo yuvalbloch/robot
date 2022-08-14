@@ -5,11 +5,12 @@
 * to first values that give us a comfarble way to see the robot 
 */
 camra::camra() {
-	eyePostion = glm::vec4(120.0, 50.0, 120.0, 1.0);
+	eyePostion = glm::vec4(200.0, 100.0, 200.0, 1.0);
 	refPostion = glm::vec4(0.0, 0.0, 0.0, 1.0);
 	upVector = glm::vec4(0.0, 1.0, 0.0, 1.0);
 	xwMin = -16.0, ywMin = -16.0, xwMax = 16.0, ywMax = 16.0;
-	dnear = 10, dfar = 600;
+	 dnear = 5, dfar = 800;
+
 	yAxis = 0;
 }
 /*
@@ -34,7 +35,10 @@ void camra::robotEye()
 	state = robot_eye;
 	rander();
 }
-
+void camra::myEye() {
+	state = normal_eye;
+	rander();
+}
 //************************************************the tranformation function******************
 void camra::rotate_to_side(float angle) {
 	rotate(angle, (eyePostion + upVector), eyePostion);

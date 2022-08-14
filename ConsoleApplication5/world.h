@@ -1,7 +1,6 @@
 #pragma once
 #include <stdlib.h>
 #include<GL/freeglut.h>
-#include "include\GL\glui.h"
 #include "room.h"
 #include "robotPart.h"
 #include "head.h"
@@ -14,6 +13,11 @@
 class world
 {
 public:
+	/*
+	* the world class hold all the diatel for the main window 
+	*its hold the robot the rom that the robot sit in and the camra that see
+	* and also the key board conrol
+	*/
 	enum control { robotControl  , camraControl};
 	GLint winHigh, WinWidth ; //window size
 	robot roby ;

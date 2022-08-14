@@ -136,7 +136,7 @@ bool robotPart::tranform(glm::mat4 trans)
 bool robotPart::checkCollision(glm::mat4 trans)
 {
 	for (int i = 0; i < 8; i++) {
-		if ((trans * corners[i]).x < 0 || (trans * corners[i]).z < 0 || (trans * corners[i]).x > 200 || (trans * corners[i]).z > 200 || (trans * corners[i]).y < 0) {
+		if ((trans * corners[i]).x < 0 || (trans * corners[i]).z < 0 || (trans * corners[i]).x > 400 || (trans * corners[i]).z > 400 || (trans * corners[i]).y < 0) {
 			return false;
 		}
 	}

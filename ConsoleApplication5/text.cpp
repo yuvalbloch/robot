@@ -6,7 +6,10 @@ text::text(std::string newText, int x, int y)
 	y0 = y;
 	theText = newText;
 }
-
+/* 
+* the draw text function use bitmap to write the text
+when it came close to end of the lin it will jump line in the next space
+*/
 void text::draw(int maxX)
 {
 	glColor3f(0.0, 0.0, 0.0);
@@ -14,7 +17,6 @@ void text::draw(int maxX)
 	glRasterPos2f(x0 , y0);
 	int line = 0;
 	for (int i = 0; i < theText.length(); i++) {
-		std::cout << theText[i];
 		int rasterpos[4];
 		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, theText[i]);
 		glGetIntegerv(GL_CURRENT_RASTER_POSITION, rasterpos);

@@ -11,7 +11,7 @@ powerButton::powerButton(float x_minimum, float y_minimum, float x_maximum, floa
 */
 void powerButton::draw(float r, float g, float b)
 {
-	float step = 1.0 / (maxX - minX);
+	float step = 2.0 / (maxX - minX);
 	glLineWidth(1.0);
 	glBegin(GL_LINES);
 	for (float i = minX; i < maxX; i++) {
@@ -28,7 +28,7 @@ void powerButton::draw(float r, float g, float b)
 */
 float powerButton::chosePower(int x, int y)
 {
-	float step = 1.0 / (maxX - minX);
+	float step = 2.0 / (maxX - minX);
 	std::cout << step;
 	if (press(x, y)) {
 		return step * static_cast<float>(x - minX);

@@ -16,6 +16,7 @@ class camra
 {
 private:
 	float yAxis;
+	GLfloat dnear , dfar ;
 	//set the camara position
 	glm::vec4 eyePostion;
 	glm::vec4 refPostion;// refrence vector
@@ -23,13 +24,13 @@ private:
 	//the clliping window position
 	GLfloat xwMin , ywMin , xwMax , ywMax;
 	//set the depth of the clliping
-	GLfloat dnear , dfar ;
 	enum type  { up_down , side ,robot_eye , normal_eye };
-public:
+public:;
 	int state = normal_eye;
 	void rander();
 	camra();
 	void robotEye();
+	void myEye();
 	/* 
 	* transformation:
 	* the camra cna raotat what mean tha the dirction that it look to will change

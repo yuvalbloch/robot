@@ -53,9 +53,13 @@ void world::display() {
 void world::keyboard(unsigned char key)
 {
 	if (key == '1') {
+		roby.myHead.stopSee();
+		kamy.myEye();
 		control = robotControl;
 	}
 	if (key == '2') {
+		roby.myHead.stopSee();
+		kamy.myEye();
 		control = camraControl;
 	}
 	if (key == '3') {

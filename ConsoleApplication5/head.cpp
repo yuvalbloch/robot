@@ -42,14 +42,17 @@ void head::see()
 	gluLookAt(eyePostion.x, eyePostion.y, eyePostion.z, refPostion.x, refPostion.y, refPostion.z, 0, 1, 0);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(90, 1, 10, 250);
+	gluPerspective(90, 1, 10, 800);
 }
 void head::startSee()
 {
 	robotEye = true;
 	see();
 }
-
+void head::stopSee()
+{
+	robotEye = false;
+}
 /*
 * there is 2 possible rotition to the head 
 * up_down rotate on a vertical axis that cross trogh the middle of the head

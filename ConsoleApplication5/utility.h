@@ -13,6 +13,5 @@ namespace utility
 {
 	void vecMultyple(glm::vec4* targt, glm::vec4 a, glm::vec4 b);
 	void matrix_for_rotation_over_axis(glm::mat4* output, glm::vec3 a, glm::vec3 b, float angle);
-	void display_massage();
 };
 
