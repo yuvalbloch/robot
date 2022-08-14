@@ -26,7 +26,7 @@ void matrial::setShine(float x)
 void matrial::setToIron()
 {
 	setColor(0.2f, 0.1f, 0.1f, 1.0f);
-	setSpectular(0.2f, 0.2f, 0.2f, 1.0f);
+	setSpectular(0.1f, 0.1f, 0.1f, 1.0f);
 	setShine(10.0);
 }
 
@@ -41,7 +41,18 @@ void matrial::setToCramic()
 	setSpectular(0.1f, 0.1f, 0.1f, 1.0f);
 	setShine(20.0);
 }
+void matrial::setToEyeMat() {
+	setColor( 1.0f, 0.0f, 0.0f, 1.0f );
+	setSpectular(0.2f, 0.2f, 0.2f, 1.0f);
+	setShine(3.0);
 
+}
+void matrial::setToGlass() {
+	setColor(0.1f, 0.4f, 0.6f, 0.4f);
+	setSpectular(0.5f, 0.5f, 0.5f, 1.0f);
+	setShine(20.0);
+
+}
 void matrial::use()
 {
 	glMaterialfv(GL_FRONT, GL_SHININESS, shine);

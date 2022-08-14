@@ -12,6 +12,9 @@ public:
 	void setToIron();
 	void setTosteel();
 	void setToCramic();
+	void setToEyeMat();
+	void setToGlass();
+	void sertToEyeMat();
 	void use();
 	GLfloat color[4] = { 0,0,0,1 };
 	GLfloat spect[4] = { 0,0,0,1 };

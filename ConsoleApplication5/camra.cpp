@@ -9,7 +9,7 @@ camra::camra() {
 	refPostion = glm::vec4(0.0, 0.0, 0.0, 1.0);
 	upVector = glm::vec4(0.0, 1.0, 0.0, 1.0);
 	xwMin = -16.0, ywMin = -16.0, xwMax = 16.0, ywMax = 16.0;
-	dnear = 10, dfar = 400;
+	dnear = 10, dfar = 600;
 	yAxis = 0;
 }
 /*

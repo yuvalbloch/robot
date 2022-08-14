@@ -146,13 +146,16 @@
     <ClCompile Include="arm_part.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="camra.cpp" />
+    <ClCompile Include="colorButton.cpp" />
     <ClCompile Include="instractionWindow.cpp" />
     <ClCompile Include="matrialList.cpp" />
+    <ClCompile Include="powerButton.cpp" />
     <ClCompile Include="robotProject.cpp" />
     <ClCompile Include="head.cpp" />
     <ClCompile Include="robot.cpp" />
     <ClCompile Include="robotPart.cpp" />
     <ClCompile Include="room.cpp" />
+    <ClCompile Include="text.cpp" />
     <ClCompile Include="utility.cpp" />
     <ClCompile Include="world.cpp" />
   </ItemGroup>
@@ -161,13 +164,16 @@
     <ClInclude Include="arm_part.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="camra.h" />
+    <ClInclude Include="colorButton.h" />
     <ClInclude Include="head.h" />
     <ClInclude Include="instractionWindow.h" />
     <ClInclude Include="matrialList.h" />
+    <ClInclude Include="powerButton.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="robot.h" />
     <ClInclude Include="robotPart.h" />
     <ClInclude Include="room.h" />
+    <ClInclude Include="text.h" />
     <ClInclude Include="utility.h" />
     <ClInclude Include="world.h" />
   </ItemGroup>

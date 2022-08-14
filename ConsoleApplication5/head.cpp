@@ -10,8 +10,9 @@ void head::draw()
 
 	robotPart::draw() ;
 	neck.draw();
-	GLfloat materialColorEYE[] = { 1.0f, 0.0f, 0.0f, 1.0f };
-	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, materialColorEYE);
+	matrial eye = matrial();
+	eye.setToEyeMat();
+	eye.use();
 	leftEye.draw();
 	rightEye.draw();
 	if (robotEye) {

@@ -9,7 +9,7 @@ world::world()
 	control = robotControl;
 	winHigh = 600 ;
 	WinWidth = 1200; //window size
-	roby = robot(50, 5, 50, 20, 30, 20);
+	roby = robot(50, 1, 50, 20, 30, 20);
 	
 }
 /*
@@ -26,9 +26,12 @@ void world::Init(void) {
 void world::setUp()
 {
 	kamy.rander();
+	lab.createLight();
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_NORMALIZE);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
 }
 // the display function draw the room and the robot
 void world::display() {

@@ -8,38 +8,37 @@ void room::drawWalls()
     glBegin(GL_POLYGON);
     glNormal3i(1, 0, 0);
     glVertex3f(0.0,-1.0, 0.0);
-    glVertex3f(0.0,-1.0, 200.0);
-    glVertex3f(0.0, 200.0, 200.0);
-    glVertex3f(0.0, 200.0, 0.0);
+    glVertex3f(0.0,-1.0, size);
+    glVertex3f(0.0, size, size);
+    glVertex3f(0.0, size, 0.0);
     glEnd();
     glBegin(GL_POLYGON);
     glNormal3i(0, 0, 1);
     glVertex3f(0.0, -1.0, 0.0);
-    glVertex3f(200.0,-1.0, 0.0);
-    glVertex3f(200.0, 200.0, 0.0);
-    glVertex3f(0.0, 200.0, 0.0);
+    glVertex3f(size,-1.0, 0.0);
+    glVertex3f(size, size, 0.0);
+    glVertex3f(0.0, size, 0.0);
     glEnd();
 }
 
 void room::drawFloor()
 {
-    //The color of the squere
     matrial carmic = matrial();
     carmic.setToCramic();
     glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, carmic.color);
     glBegin(GL_POLYGON);
     glNormal3i(0, 1, 0);
     glVertex3f(0.0, -1.0, 0.0);
-    glVertex3f(0.0, -1.0, 200.0);
-    glVertex3f(200.0, -1.0, 200.0);
-    glVertex3f(200.0, -1.0, 0.0);
+    glVertex3f(0.0, -1.0, size);
+    glVertex3f(size, -1.0, size);
+    glVertex3f(size, -1.0, 0.0);
     glEnd();
     carmic.use();
     glBegin(GL_QUADS);
     GLfloat squreColor[] = { 0.3f, 0.5f, 0.7f, 1.0f };
     float slot = 0.5;
-    for (int i = 0; i < 20; i++) {
-        for (int j = 0; j < 20; j++) {
+    for (int i = 0; i < size/10; i++) {
+        for (int j = 0; j < size / 10; j++) {
             glVertex3f(10 * i+slot, 0.0, j*10 + slot);
             glVertex3f(10 * (i+1), 0.0, j * 10+slot);
             glVertex3f(10 * (i + 1), 0.0, (j+1) * 10);
@@ -48,6 +47,61 @@ void room::drawFloor()
     }
     
     glEnd();
+}
+
+void room::drawWindows()
+{
+    {
+        matrial iron = matrial();
+        iron.setToIron();
+        matrial glass = matrial();
+        glass.setToGlass();
+        glass.use();
+        //draw the windows
+        glBegin(GL_QUADS);
+     
+        glNormal3i(-1, 0, 0);
+        glVertex3f(size, -1.0, 0.0);
+        glVertex3f(size, -1.0, size-10);
+        glVertex3f(size, size-10, size-10);
+        glVertex3f(size, size-10, 0.0);
+        glNormal3i(0, 0, -1);
+        glVertex3f(0.0, -1.0, size);
+        glVertex3f(size-10, -1.0, size);
+        glVertex3f(size - 10, size - 10, size);
+        glVertex3f(0.0, size - 10, size);
+        //draw the roof
+        glNormal3i(0, -1, 0);
+        glVertex3f(0.0, size, 0.0);
+        glVertex3f(0.0, size, size);
+        glVertex3f(size, size, size);
+        glVertex3f(size, size, 0.0);
+        //draw the iron above the window
+        iron.use();
+        glNormal3i(0, 0, -1);
+        glVertex3f(0.0, size - 10, size);
+        glVertex3f(0.0, size, size);
+        glVertex3f(size, size, size);
+        glVertex3f(size, size - 10, size);
+        glNormal3i(-1, 0, 0);
+        glVertex3f(size, size - 10, 0.0);
+        glVertex3f(size, size, 0.0);
+        glVertex3f(size, size, size);
+        glVertex3f(size, size - 10, size);
+        glNormal3i(0, 0, -1);
+        //draw the iron batwin the windows
+        glVertex3f(size-10, 0.0, size);
+        glVertex3f(size, 0.0, size);
+        glVertex3f(size, size, size);
+        glVertex3f(size - 10, size, size);
+        glNormal3i(-1, 0, 0);
+        glVertex3f(size, 0.0, size);
+        glVertex3f(size, 0.0, size);
+        glVertex3f(size, size, size);
+        glVertex3f(size, size, size - 10);
+        glEnd();
+
+    }
 }
 
 void room::createCilingLight(GLfloat lightPos0[4] , int lightNum)
@@ -73,8 +127,7 @@ void room::createLight()
     createCilingLight(lightPos2, GL_LIGHT2);
     GLfloat lightPos3[4] = { 200, 80,10, 1.0f }; //side
     createCilingLight(lightPos3, GL_LIGHT3);
-    GLfloat lightPos4[4] = { 10, 80,0, 1.0f }; //back
-    createCilingLight(lightPos4, GL_LIGHT4);
+
 }
 
 void room::createAmbidentLight()
@@ -91,8 +144,7 @@ room::room()
 
 void room::drawRoom()
 {
- 
-    createLight();
+    drawWindows();
     drawFloor();
     drawWalls();
 }

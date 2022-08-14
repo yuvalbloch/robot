@@ -36,7 +36,7 @@ void Init(void) {
     //create the instraction window
     ins.init();
     int instrauctionWin = glutCreateWindow("instruction");
-    ins.setUp();
+    ins.setUp(instrauctionWin, labWin);
     glutDisplayFunc(instraction);
     glutMouseFunc(mouseFunc);
    
